@@ -1,0 +1,15 @@
+jpeg("descr_PBPK.jpg", width=16, height=8, res=300, unit="cm", pointsize=10)
+par(mfrow=c(1,2), mar=c(4,4,3,0.5))
+
+plot(times, out2[,"CCentral"], type="b", xlab="time (h)", ylab=expression("Concentration ("*mu*M.L^{-1}*")"), ylim=c(0,3), main="CCentral")
+segments(x0=-1, x1=Half_life_CCentral, y0=CMax_CC/2, col=2, lwd=2)
+mtext(side=2, line=0.25, at=CMax_CC/2+0.2, text="Cmax/2", col=2, las=1)
+segments(x0=Half_life_CCentral, y0=-1, y1=CMax_CC/2, col=2, lwd=2)
+mtext(side=1, line=2, at=Half_life_CCentral, text="Half-Life", col=2)
+
+plot(times, out2[,"CPeriph"], type="b", xlab="time (h)", ylab=expression("Concentration ("*mu*M.L^{-1}*")"), ylim=c(0,50), main="CPeriph")
+segments(x0=-1, x1=Half_life_CPeriph, y0=CMax_CP/2, col=2, lwd=2)
+mtext(side=2, line=0.25, at=CMax_CP/2, text="Cmax/2", col=2, las=1)
+segments(x0=Half_life_CPeriph, y0=-5, y1=CMax_CP/2, col=2, lwd=2)
+mtext(side=1, line=2, at=Half_life_CPeriph, text="Half-Life", col=2)
+dev.off()
